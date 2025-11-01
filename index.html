@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Effect</title>
+  <style>
+    body { margin: 0; padding: 10px; background: #fff; }
+    .text { font: 18px Microsoft YaHei; line-height: 1.2; margin: 1px; }
+  </style>
+</head>
+<body>
+  <script>
+    // 正确的“乘风破浪nb”Unicode编码
+    const text = '\u4E58\u98CE\u7834\u6D6Anb';
+    const colors = ['#ff0000', '#ff7f00', '#ffff00', '#00ff00', '#00ffff', '#0000ff', '#8b00ff'];
+    let colorIndex = 0;
+    
+    // 20毫秒极速新增+七彩循环
+    setInterval(() => {
+      const div = document.createElement('div');
+      div.className = 'text';
+      div.textContent = text;
+      div.style.color = colors[colorIndex];
+      document.body.appendChild(div);
+      window.scrollTo(0, document.body.scrollHeight);
+      colorIndex = (colorIndex + 1) % colors.length;
+    }, 20);
+  </script>
+</body>
+</html>
